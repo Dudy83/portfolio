@@ -1,0 +1,64 @@
+datasource db {
+  provider = "postgresql" // or any other provider like MySQL
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model About {
+  id        Int      @id @default(autoincrement())
+  text1     String
+  text2     String
+  text3     String
+  paragraph String
+}
+
+model Experience {
+  id                  Int    @id @default(autoincrement())
+  title               String
+  description         String
+  duration            String
+  place               String
+  imageUrl            String
+  ctaText             String
+  ctaLink             String
+  backgroundClassName String
+  content             String
+}
+
+model TechnoType {
+  id    Int          @id @default(autoincrement())
+  name  String
+  items TechnoItem[]
+}
+
+model TechnoItem {
+  id          Int        @id @default(autoincrement())
+  title       String
+  description String
+  imageUrl    String
+  link        String
+  typeId      Int
+  type        TechnoType @relation(fields: [typeId], references: [id])
+}
+
+model Project {
+  id          Int    @id @default(autoincrement())
+  title       String
+  description String
+  imageUrl    String
+  coverUrl    String?
+  href        String
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  firstname String
+  lastname  String
+  phone     String
+  message   String
+  imageUrl  String?  // Optional if you're storing the path or URL of an uploaded image
+  createdAt DateTime @default(now())
+}

@@ -10,7 +10,6 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPost({ params }) {
-     console.log('%capp\blog\article\[slug]\page.tsx:13 params', 'color: #007acc;', params);
      const { slug } = params; // Access the slug directly from the params in the server component
 
      // Fetch data based on the slug (you can replace this with your actual data fetching)

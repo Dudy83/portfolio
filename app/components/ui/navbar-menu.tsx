@@ -36,7 +36,7 @@ export const MenuItem = ({
                     className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
                >
                     {href ?
-                         <Link className={'hover-text-gradient ' + (pathname === href && 'active-text-gradient')} href={href}>
+                         <Link className={'font-medium hover-text-gradient ' + (pathname === href && 'active-text-gradient')} href={href}>
                               {item}
                          </Link>
                          : item

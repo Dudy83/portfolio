@@ -14,6 +14,20 @@ const config = {
           './app/**/*.{ts,tsx}',
           './src/**/*.{ts,tsx}',
      ],
+     safelist: [
+          'from-violet-500',
+          'via-purple-500',
+          'to-blue-500',
+          'from-orange-500',
+          'via-amber-500',
+          'to-yellow-500',
+          'from-green-400',
+          'via-emerald-400',
+          'to-teal-400',
+          'from-sky-500',
+          'via-blue-500',
+          'to-indigo-500',
+     ],
      prefix: "",
      theme: {
           container: {
@@ -77,6 +91,9 @@ const config = {
                animation: {
                     "accordion-down": "accordion-down 0.2s ease-out",
                     "accordion-up": "accordion-up 0.2s ease-out",
+               },
+               boxShadow: {
+                    input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
                },
           },
      },
