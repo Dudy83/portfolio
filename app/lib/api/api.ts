@@ -1,4 +1,3 @@
-import { TechnosProps } from "@/components/sections/TechnoSection/TechnoSection";
 import { PrismaClient } from "@prisma/client";
 
 export const prisma = new PrismaClient();
@@ -27,6 +26,20 @@ const ctx = {
      getProjectsData: async () => {
           const projects = await prisma.project.findMany();
           return projects;
+     },
+
+     getAllBlogData: async () => {
+          const blogs = await prisma.blog.findMany();
+          return blogs;
+     },
+
+     getBlogArticleData: async (slug: string) => {
+          const article = await prisma.blog.findFirst({
+               where: {
+                    slug
+               }
+          });
+          return article;
      }
 };
 

@@ -62,3 +62,17 @@ model Contact {
   imageUrl  String?  // Optional if you're storing the path or URL of an uploaded image
   createdAt DateTime @default(now())
 }
+
+model Blog {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique
+  slug        String   @unique // Slug for SEO-friendly URLs
+  content     String   // The main content of the blog
+  summary     String   // Short summary of the blog
+  imageUrl    String  // Optional URL for the blog's main image
+  author      String   // Author's name
+  published   Boolean  @default(false) // Flag to indicate if the blog is published
+  publishedAt DateTime? // Date when the blog was published
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

@@ -39,22 +39,22 @@ const Navbar = () => {
      const links = [
           {
                id: 0,
-               name: 'About',
+               name: 'A propos',
                href: '/#about'
           },
           {
                id: 1,
-               name: 'Tools',
+               name: 'Technologies',
                href: '/#tools'
           },
           {
                id: 2,
-               name: 'Experiences',
+               name: 'Expériences',
                href: '/#experience'
           },
           {
                id: 3,
-               name: 'Projects',
+               name: 'Projets',
                href: '/#projects'
           },
           {

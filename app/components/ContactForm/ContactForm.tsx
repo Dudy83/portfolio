@@ -24,20 +24,20 @@ import { Boxes } from "../ui/background-boxes";
 const FormSchema = z.object({
      firstname: z
           .string()
-          .min(2, { message: "Firstname must be at least 2 characters long" })
-          .max(50, { message: "Firstname must be less than 50 characters" }),
+          .min(2, { message: "Le prénom doit faire 2 caratères minimum" })
+          .max(50, { message: "Le prénom ne peut excéder 50 caratères" }),
      lastname: z
           .string()
-          .min(2, { message: "Lastname must be at least 2 characters long" })
-          .max(50, { message: "Lastname must be less than 50 characters" }),
+          .min(2, { message: "Le nom doit faire 2 caratères minimum" })
+          .max(50, { message: "Le nom ne peut excéder 50 caratères" }),
      phone: z
           .string()
-          .refine(isValidPhoneNumber, { message: "Invalid phone number" }),
+          .refine(isValidPhoneNumber, { message: "Numéro de téléphone invalide" }),
      message: z
           .string()
-          .min(10, { message: "Message must be at least 10 characters long" })
-          .max(100, { message: "Message must be less than 100 characters" }),
-     images: typeof window !== 'undefined' ? z.array(z.instanceof(File)).max(1, { message: "You can upload up to 1 image" }) : z.array(z.any()),
+          .min(10, { message: "Le message doit faire 10 caratères minimum" })
+          .max(100, { message: "Le nom ne peut excéder 100 caratères" }),
+     images: typeof window !== 'undefined' ? z.array(z.instanceof(File)).max(1, { message: "Vous pouvez ajouter jusqu'à 1 image" }) : z.array(z.any()),
 });
 
 export default function ContactForm() {
@@ -117,7 +117,7 @@ export default function ContactForm() {
                                              name="firstname"
                                              render={({ field }) => (
                                                   <FormItem className="flex flex-col space-y-2 w-full">
-                                                       <FormLabel className="text-left">First name</FormLabel>
+                                                       <FormLabel className="text-left">Prénom</FormLabel>
                                                        <FormControl className="w-full">
                                                             <Input id="firstname" placeholder="Tyler" type="text" {...field} />
                                                        </FormControl>
@@ -131,7 +131,7 @@ export default function ContactForm() {
                                              name="lastname"
                                              render={({ field }) => (
                                                   <FormItem className="flex flex-col space-y-2 w-full">
-                                                       <FormLabel className="text-left">Last name</FormLabel>
+                                                       <FormLabel className="text-left">Nom</FormLabel>
                                                        <FormControl className="w-full">
                                                             <Input id="lastname" placeholder="Durden" type="text" {...field} />
                                                        </FormControl>
@@ -146,9 +146,9 @@ export default function ContactForm() {
                                         name="phone"
                                         render={({ field }) => (
                                              <FormItem className="mb-4">
-                                                  <FormLabel className="text-left">Phone</FormLabel>
+                                                  <FormLabel className="text-left">Téléphone</FormLabel>
                                                   <FormControl className="w-full">
-                                                       <PhoneInput placeholder="Enter a phone number" {...field} />
+                                                       <PhoneInput placeholder="+33 6 10 11 12 13" {...field} />
                                                   </FormControl>
                                                   <FormMessage />
                                              </FormItem>

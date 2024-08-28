@@ -9,16 +9,15 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { Blog } from "@prisma/client";
+
+interface HeroParallaxProps {
+     products: Blog[]
+}
 
 export const HeroParallax = ({
      products,
-}: {
-     products: {
-          title: string;
-          link: string;
-          thumbnail: string;
-     }[];
-}) => {
+}: HeroParallaxProps) => {
      const firstRow = products.slice(0, 5);
      const secondRow = products.slice(5, 10);
      const thirdRow = products.slice(10, 15);
@@ -43,7 +42,7 @@ export const HeroParallax = ({
           springConfig
      );
      const opacity = useSpring(
-          useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+          useTransform(scrollYProgress, [0, 0.5], [0.5, 1]),
           springConfig
      );
      const rotateZ = useSpring(
@@ -74,7 +73,7 @@ export const HeroParallax = ({
                               <ProductCard
                                    product={product}
                                    translate={translateX}
-                                   key={product.title}
+                                   key={product.summary}
                               />
                          ))}
                     </motion.div>
@@ -83,7 +82,7 @@ export const HeroParallax = ({
                               <ProductCard
                                    product={product}
                                    translate={translateXReverse}
-                                   key={product.title}
+                                   key={product.summary}
                               />
                          ))}
                     </motion.div>
@@ -92,7 +91,7 @@ export const HeroParallax = ({
                               <ProductCard
                                    product={product}
                                    translate={translateX}
-                                   key={product.title}
+                                   key={product.summary}
                               />
                          ))}
                     </motion.div>
@@ -103,13 +102,13 @@ export const HeroParallax = ({
 
 export const Header = () => {
      return (
-          <div className="container mx-auto py-16 md:py-32 px-4 relative w-full">
+          <div className="container mx-auto py-16 md:py-32 px-4 relative w-full z-10 pointer-events-none">
                <h1 className="text-3xl md:text-6xl font-bold dark:text-white">
-                    The Blog<br /> Crafting Web Experiences
+                    Le Blog<br />
                </h1>
                <p className="max-w-2xl text-lg md:text-xl mt-6 dark:text-neutral-200">
-                    I design and develop high-quality websites using modern tools and best practices.
-                    My focus is on creating user-centric digital experiences that drive results and showcase my passion for web development.
+                    Chaque projet est une opportunité de concevoir des expériences numériques engageantes, centrées sur l'utilisateur,
+                    et de partager ma passion pour l'innovation et le développement web.
                </p>
           </div>
 
@@ -120,11 +119,7 @@ export const ProductCard = ({
      product,
      translate,
 }: {
-     product: {
-          title: string;
-          link: string;
-          thumbnail: string;
-     };
+     product: Blog;
      translate: MotionValue<number>;
 }) => {
      return (
@@ -139,11 +134,11 @@ export const ProductCard = ({
                className="group/product h-96 w-[30rem] relative flex-shrink-0"
           >
                <Link
-                    href={product.link}
+                    href={'/blog/article/' + product.slug}
                     className="block group-hover/product:shadow-2xl "
                >
                     <Image
-                         src={product.thumbnail}
+                         src={product.imageUrl}
                          height="600"
                          width="600"
                          className="object-cover object-left-top absolute h-full w-full inset-0"
@@ -152,7 +147,7 @@ export const ProductCard = ({
                </Link>
                <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
                <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-                    {product.title}
+                    {product.summary}
                </h2>
           </motion.div>
      );
