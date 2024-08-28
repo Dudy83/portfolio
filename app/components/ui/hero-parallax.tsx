@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Blog } from "@prisma/client";
+import { Highlight } from "@/components/ui/hero-highlight";
 
 interface HeroParallaxProps {
      products: Blog[]
@@ -103,10 +104,14 @@ export const HeroParallax = ({
 export const Header = () => {
      return (
           <div className="container mx-auto py-16 md:py-32 px-4 relative w-full z-10 pointer-events-none">
-               <h1 className="text-3xl md:text-6xl font-bold dark:text-white">
-                    Le Blog<br />
+               <h1 className="hover-text-gradient active-text-gradient !leading-[unset] tracking-tighter transition-all duration-300 text-5xl lg:text-7xl">
+                    <Highlight className="text-white px-4">
+                         Le Blog
+                    </Highlight>
                </h1>
-               <p className="max-w-2xl text-lg md:text-xl mt-6 dark:text-neutral-200">
+
+
+               <p className="max-w-2xl text-lg md:text-xl mt-6 dark:text-neutral-200 font-medium">
                     Chaque projet est une opportunité de concevoir des expériences numériques engageantes, centrées sur l'utilisateur,
                     et de partager ma passion pour l'innovation et le développement web.
                </p>

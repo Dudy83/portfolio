@@ -15,6 +15,8 @@ import {
 import { ChevronDownIcon } from '@heroicons/react/16/solid';
 import { BackgroundGradient } from '@/components/ui/background-gradient';
 import useHash from '@/hooks/useHash';
+import ctx from '@/lib/api/api';
+import { Blog } from '@prisma/client';
 
 function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
      return (
@@ -31,7 +33,11 @@ function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
      )
 }
 
-const Navbar = () => {
+interface NavbarProps {
+     blogPosts: Blog[]
+}
+
+const Navbar = ({ blogPosts }: NavbarProps) => {
      const [active, setActive] = useState<string | null>(null);
      const pathname = usePathname();
      const hash = useHash();
@@ -68,6 +74,7 @@ const Navbar = () => {
                href: '/blog'
           },
      ]
+
      return (
 
           <header className='sticky header flex-center z-50'>
@@ -96,31 +103,15 @@ const Navbar = () => {
                               )}
 
                               <MenuItem setActive={setActive} active={active} href='/blog' item="Blog">
-                                   <div className="text-sm grid grid-cols-2 gap-10 p-4">
-                                        <ProductItem
-                                             title="Algochurn"
-                                             href="https://algochurn.com"
-                                             src="https://assets.aceternity.com/demos/algochurn.webp"
-                                             description="Prepare for tech interviews like never before."
-                                        />
-                                        <ProductItem
-                                             title="Tailwind Master Kit"
-                                             href="https://tailwindmasterkit.com"
-                                             src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-                                             description="Production ready Tailwind css components for your next project"
-                                        />
-                                        <ProductItem
-                                             title="Moonbeam"
-                                             href="https://gomoonbeam.com"
-                                             src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-                                             description="Never write from scratch again. Go from idea to blog in minutes."
-                                        />
-                                        <ProductItem
-                                             title="Rogue"
-                                             href="https://userogue.com"
-                                             src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-                                             description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-                                        />
+                                   <div className="relative text-sm grid grid-cols-1 xl:grid-cols-2 gap-10 p-4">
+                                        {blogPosts.map((post, i) => (
+                                             <ProductItem key={i}
+                                                  title={post.title}
+                                                  href={`/blog/article/${post.slug}`}
+                                                  src={post.imageUrl}
+                                                  description={post.summary}
+                                             />
+                                        ))}
                                    </div>
                               </MenuItem>
                          </Menu>

@@ -1,13 +1,9 @@
-// app/blog/article/[slug]/page.mdx
-
 import ctx from "@/lib/api/api";
 import { notFound } from "next/navigation";
 import Markdown from 'markdown-to-jsx'
-import HeaderSection from "@/components/sections/HeaderSection/HeaderSection";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import dayjs from 'dayjs'
-import { Highlight } from "@/components/ui/hero-highlight";
 
 export default async function BlogPost({ params }) {
      const { slug } = params;

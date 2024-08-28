@@ -7,6 +7,7 @@ import Navbar from '@/components/layout/Navbar/Navbar';
 import Background from '@/components/layout/Background/Background';
 import { Toaster } from "@/components/ui/toaster"
 import Footer from '@/components/layout/Footer/Footer';
+import ctx from './lib/api/api';
 
 const font = Poppins({
      weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -19,11 +20,13 @@ export const metadata: Metadata = {
      description: "I'm a Fullstack Web Developer",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
      children,
 }: {
      children: React.ReactNode;
 }) {
+     const blogPosts = await ctx.getNavbarBlogPostData();
+
      return (
           <html lang="en" suppressHydrationWarning>
                <head>
@@ -44,7 +47,7 @@ export default function RootLayout({
                                    <Background />
                                    <div className="centered-content">
                                         <div className="page-content">
-                                             <Navbar />
+                                             <Navbar blogPosts={blogPosts} />
                                              <main>{children}</main>
                                         </div>
                                    </div>

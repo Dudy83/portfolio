@@ -3,6 +3,13 @@ import { PrismaClient } from "@prisma/client";
 export const prisma = new PrismaClient();
 
 const ctx = {
+     getNavbarBlogPostData: async () => {
+          const blogs = await prisma.blog.findMany({
+               take: 4,
+          });
+          return blogs;
+     },
+
      getAboutData: async () => {
           const about = await prisma.about.findFirst();
 

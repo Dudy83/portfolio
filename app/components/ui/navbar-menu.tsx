@@ -49,7 +49,7 @@ export const MenuItem = ({
                          transition={transition}
                     >
                          {active === item && (
-                              <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4 -mt-2">
+                              <div className="absolute top-[calc(100%_+_1.2rem)] -right-3 xl:right-[unset] xl:left-1/2 transform translate-x-0 xl:-translate-x-1/2 pt-4 -mt-2">
                                    <motion.div
                                         transition={transition}
                                         layoutId="active" // layoutId ensures smooth animation
@@ -105,10 +105,10 @@ export const ProductItem = ({
                     width={140}
                     height={70}
                     alt={title}
-                    className="flex-shrink-0 rounded-md shadow-2xl"
+                    className="object-cover rounded-md shadow-2xl"
                />
                <div>
-                    <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
+                    <h4 className="text-xl font-bold mb-1 text-black dark:text-white truncate max-w-xs">
                          {title}
                     </h4>
                     <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
