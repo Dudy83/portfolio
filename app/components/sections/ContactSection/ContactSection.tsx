@@ -13,7 +13,7 @@ const ContactSection = () => {
                <div className='ml-4 lg:ml-0'>
                     <HeaderSection
                          title='Contact'
-                         description={"Envoyez moi un message et je vous répondrai dans les plus brefs délais"}
+                         description={"Envoyez moi un message ou téléchargez mon CV"}
                          centered={true}
                     />
                </div>

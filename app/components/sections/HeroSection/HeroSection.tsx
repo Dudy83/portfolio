@@ -17,6 +17,8 @@ export default function HeroSection({ about }: HeroSectionProps) {
           <header
                className={`relative -ml-4 sm:-ml-6 mb-20 h-[calc(100vh-116px)] min-w-[calc(100%+2rem)] sm:min-w-[calc(100%+3rem)]`}
           >
+               <div className="pointer-events-auto absolute w-full bg-transparent h-full z-50 flex justify-center items-start top-0">
+               </div>
                {isCanvasInit && (
                     <>
                          <div className="tags ml-8 mt-5">{'<header>'}</div>
@@ -29,14 +31,14 @@ export default function HeroSection({ about }: HeroSectionProps) {
                                    <TypewriterEffect
                                         cursorClassName="bg-transparent"
                                         words={[
-                                             { text: about?.text1.split(' ')[0] || '', className: 'text-5xl md:text-6xl lg:text-7xl tracking-wide' },
-                                             { text: about?.text1.split(' ')[1] || '', className: 'text-5xl md:text-6xl lg:text-7xl tracking-wide text-violet-600 dark:text-violet-600' },
+                                             { text: about?.text1.split(' ')[0] || '', className: 'text-4xl md:text-6xl lg:text-7xl tracking-wide' },
+                                             { text: about?.text1.split(' ')[1] || '', className: 'text-4xl md:text-6xl lg:text-7xl tracking-wide text-violet-600 dark:text-violet-600' },
                                         ]}
                                    />
                                    <TypewriterEffect
                                         cursorClassName="bg-transparent"
                                         words={[
-                                             { text: about?.text2.split(' ')[0] || '', className: 'text-5xl md:text-6xl lg:text-7xl tracking-wide' },
+                                             { text: about?.text2.split(' ')[0] || '', className: 'text-4xl md:text-6xl lg:text-7xl tracking-wide' },
                                              { text: about?.text2.split(' ')[1] || '', className: 'text-3xl md:text-4xl lg:text-5xl tracking-wide' },
                                              { text: about?.text2.split(' ')[2] || '', className: 'text-3xl md:text-6xl lg:text-7xl tracking-wide text-purple-500 dark:text-purple-500' },
                                         ]}
@@ -57,7 +59,7 @@ export default function HeroSection({ about }: HeroSectionProps) {
                               <div className="ml-0 md:ml-12">
                                    <div className="tags first">{'<p>'}</div>
                                    <p
-                                        className={`text-zinc-800 dark:text-white text-base md:text-xl font-semibold tracking-tight ml-4`}
+                                        className={`text-zinc-800 dark:text-white text-sm sm:text-base md:text-xl font-semibold tracking-tight ml-4`}
                                    >
                                         {about?.paragraph.split(' ').map((word, index) => (
                                              <span

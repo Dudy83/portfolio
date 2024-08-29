@@ -5,7 +5,13 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import dayjs from 'dayjs'
 
-export default async function BlogPost({ params }) {
+interface BlogPostParams {
+     params: {
+          slug: string;
+     }
+}
+
+export default async function BlogPost({ params }: BlogPostParams) {
      const { slug } = params;
 
      const post = await ctx.getBlogArticleData(slug);

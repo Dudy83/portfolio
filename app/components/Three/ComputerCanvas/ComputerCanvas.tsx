@@ -114,7 +114,7 @@ const ComputersCanvas = ({ setInit }: ComputersCanvasProps) => {
                     <Preload all />
                     <Html
                          as="div"
-                         wrapperClass="absolute !left-10 xl:!left-16 bottom-10 !transform-none !top-[unset]"
+                         wrapperClass="absolute !left-10 xl:!left-16 bottom-10 !transform-none !top-[unset] !z-10"
                     >
                          <div className="tags">{'</canvas>'}</div>
                     </Html>

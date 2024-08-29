@@ -17,7 +17,7 @@ const ProjectsSection = ({ projects }: ProjectsProps) => {
                     <div className="ml-4 mb-10">
                          <HeaderSection
                               title='Projets'
-                              description={'les technologies que je maitrise et qui m\' accompagne'}
+                              description={'Les différents projets qui ont forgés mon expérience'}
                          />
                     </div>
 

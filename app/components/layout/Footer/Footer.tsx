@@ -15,7 +15,7 @@ const Footer = () => {
                {
                     name: 'GitHub',
                     href: 'https://github.com/Dudy83',
-                    icon: (props) => (
+                    icon: (props: any) => (
                          <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                               <path
                                    fillRule="evenodd"

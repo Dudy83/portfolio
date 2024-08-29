@@ -1,7 +1,13 @@
-import { cn } from '@/lib/utils'
 import React from 'react'
+import { cn } from '@/lib/utils'
 
-const HeaderSection = ({ title, description, centered = false }) => {
+interface HeaderSectionProps {
+     title: string,
+     description: string,
+     centered?: boolean
+}
+
+const HeaderSection = ({ title, description, centered = false }: HeaderSectionProps) => {
      return (
           <div className={cn("max-w-7xl mx-auto xl:px-16 px-0", centered ? 'lg:flex-center flex-col' : '')}>
                <div className={cn(centered ? 'lg:flex-center' : '')}>
