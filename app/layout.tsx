@@ -8,6 +8,7 @@ import Background from '@/components/layout/Background/Background';
 import { Toaster } from "@/components/ui/toaster"
 import Footer from '@/components/layout/Footer/Footer';
 import ctx from './lib/api/api';
+import Head from 'next/head';
 
 const font = Poppins({
      weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -28,12 +29,19 @@ export default async function RootLayout({
      const blogPosts = await ctx.getNavbarBlogPostData();
 
      return (
-          <html lang="en" suppressHydrationWarning>
-               <head>
+          <html lang="fr" suppressHydrationWarning>
+               <Head>
+                    <title>{metadata.title! as string}</title>
+                    <meta name="description" content={metadata.description!} />
                     <meta charSet="UTF-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    <title>Guillaume ZEHREN - Développeur Web Fullstack | Portfolio</title>
-               </head>
+                    {/* Additional SEO tags */}
+                    <meta property="og:title" content={metadata.title! as string} />
+                    <meta property="og:description" content={metadata.description!} />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content="https://guillaume-zehren.com" />
+                    {/* <meta property="og:image" content="https://guillaume-zehren.com/image.jpg" /> */}
+               </Head>
 
                <body className={`flex h-full ${font.className}`}>
                     <ThemeProvider
