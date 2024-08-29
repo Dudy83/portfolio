@@ -93,7 +93,7 @@ const ProjectCarousel = ({ projects }: ProjectCarouselProps) => {
                                                        isHover={index === middleItemIndex}
                                                   >
                                                        <div className="relative flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2">
-                                                            <div className={cn("absolute inset-0 transition-transform duration-300 group-hover:rotate-0", (middleItemIndex !== project.id && (index % 2 === 1 ? 'rotate-[10deg]' : 'rotate-[-10deg]')))}>
+                                                            <div className={cn("absolute inset-0 transition-transform duration-300 group-hover:rotate-0", (!(index === middleItemIndex) && (index % 2 === 1 ? 'rotate-[10deg]' : 'rotate-[-10deg]')))}>
                                                                  {project.coverUrl ? <Image className="rounded-2xl" src={project.coverUrl} fill={true} objectFit="cover" alt={project.title} />
                                                                       : <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500 via-purple-500 to-blue-50"></div>}
                                                             </div>
