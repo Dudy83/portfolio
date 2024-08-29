@@ -16,8 +16,8 @@ const font = Poppins({
 });
 
 export const metadata: Metadata = {
-     title: 'Guillaume ZEHREN - Portfolio | Home',
-     description: "I'm a Fullstack Web Developer",
+     title: 'Guillaume ZEHREN - Développeur Web Fullstack | Portfolio',
+     description: "Je suis Guillaume ZEHREN, Développeur Web Freelance Fullstack",
 };
 
 export default async function RootLayout({
@@ -32,7 +32,7 @@ export default async function RootLayout({
                <head>
                     <meta charSet="UTF-8" />
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                    <title>{metadata.title as string}</title>
+                    <title>Guillaume ZEHREN - Développeur Web Fullstack | Portfolio</title>
                </head>
 
                <body className={`flex h-full ${font.className}`}>
