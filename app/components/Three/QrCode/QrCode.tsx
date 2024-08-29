@@ -42,7 +42,7 @@ const QRCodeCube: FC<CubeProps> = ({ isMobile }) => {
 
 // This component will handle the FOV logic
 const AdaptiveCamera = ({ isMobile }: { isMobile: boolean }) => {
-     const { camera } = useThree();
+     const { camera } = useThree() as any;
 
      useEffect(() => {
           // Dynamically update the FOV based on isMobile state

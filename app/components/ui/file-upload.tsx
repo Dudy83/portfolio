@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const FileUpload = forwardRef<HTMLInputElement, { onChange: (files: File[]) => void; reset: boolean }>(
      ({ onChange, reset }, ref) => {
           const [files, setFiles] = useState<File[]>([]);
-          const fileInputRef = useRef<HTMLInputElement>(null);
+          const fileInputRef = useRef<HTMLInputElement | null>(null);
 
           useEffect(() => {
                if (reset) {
