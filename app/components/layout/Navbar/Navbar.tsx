@@ -77,7 +77,7 @@ const Navbar = ({ blogPosts }: NavbarProps) => {
 
      return (
 
-          <header className='sticky header flex-center z-50'>
+          <div className='sticky header flex-center z-[200]'>
                <Link href='/' className='home-btn'>
                     <BackgroundGradient className="rounded-full bg-white/80 dark:bg-zinc-800/80">
                          <Image
@@ -160,7 +160,7 @@ const Navbar = ({ blogPosts }: NavbarProps) => {
                <div className='ml-2 md:ml-auto'>
                     <SwitchDarkMode />
                </div>
-          </header>
+          </div>
      )
 }
 
