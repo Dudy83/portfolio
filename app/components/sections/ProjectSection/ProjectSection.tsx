@@ -8,7 +8,6 @@ interface ProjectsProps {
      projects: Project[];
 }
 
-
 const ProjectsSection = ({ projects }: ProjectsProps) => {
      return (
           <>
@@ -30,5 +29,3 @@ const ProjectsSection = ({ projects }: ProjectsProps) => {
 }
 
 export default ProjectsSection
-
-
