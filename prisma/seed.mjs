@@ -174,7 +174,7 @@ async function main() {
                     description: "",
                     imageUrl: "/images/projects/10streetimmo/logo-immo.png",
                     coverUrl: "/images/projects/10streetimmo/cover-immo.jpg",
-                    href: "https:/10streetimmo.com",
+                    href: "https://10thstreetimmo.com",
                },
                {
                     title: "JR Solutions",
