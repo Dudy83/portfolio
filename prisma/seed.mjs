@@ -156,18 +156,18 @@ async function main() {
                     href: "https://ac-architecte.net",
                },
                {
-                    title: "JDC Rénovations",
+                    title: "SBM Studios",
                     description: "",
-                    imageUrl: "/images/projects/jdc/logo-jdc.png",
-                    coverUrl: "/images/projects/jdc/bg-jdc.jpg",
-                    href: "https:/jdc-renovations.fr",
+                    imageUrl: "/images/projects/sbm/logo-cropped.webp",
+                    coverUrl: "/images/projects/sbm/cozy.webp",
+                    href: "https://studiosbm.fr",
                },
                {
                     title: "Arnaud Elagage",
                     description: "",
                     imageUrl: "/images/projects/arnaud-elagage/logo-ae.webp",
                     coverUrl: "/images/projects/arnaud-elagage/cover-ae.webp",
-                    href: "https:/arnaud-elagage.fr",
+                    href: "https://arnaud-elagage.fr",
                },
                {
                     title: "10 Street Immo",

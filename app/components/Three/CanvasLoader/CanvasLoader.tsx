@@ -22,6 +22,8 @@ const CanvasLoader = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     flexDirection: "column",
+                    height: "100vh",
+                    marginTop: "-116px",
                }}
           >
                <span className="spinner"></span>
@@ -35,7 +37,7 @@ const CanvasLoader = () => {
                          </div>
                     </BackgroundGradient>
                </div>
-          </Html >
+          </Html>
      );
 };
 

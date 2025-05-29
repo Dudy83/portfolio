@@ -33,7 +33,7 @@ const Computers = ({ isMobile, rotationY }: ComputersProps) => {
                <primitive
                     object={computer.scene}
                     scale={isMobile ? 0.45 : 0.75}
-                    position={isMobile ? [0, -3, -1.5] : [0, -3.25, -1.5]}
+                    position={isMobile ? [0, -1, -1.5] : [0, -1.5, -1.5]}
                     rotation={[-0.01, -0.2, -0.1]}
                />
           </mesh>
@@ -95,31 +95,33 @@ const ComputersCanvas = ({ setInit }: ComputersCanvasProps) => {
      }, [progress]);
 
      return (
-          <Canvas
-               frameloop="demand"
-               shadows
-               dpr={[1, 2]}
-               camera={{ position: [20, 3, 30], fov: 15 }}
-               gl={{ preserveDrawingBuffer: true }}
-          >
-               <Suspense fallback={<CanvasLoader />}>
-                    <OrbitControls
-                         enableZoom={false}
-                         autoRotate={true}
-                         autoRotateSpeed={0.5}
-                         maxPolarAngle={Math.PI / 2}
-                         minPolarAngle={Math.PI / 2}
-                    />
-                    <Computers isMobile={isMobile} rotationY={rotationY} />
-                    <Preload all />
-                    <Html
-                         as="div"
-                         wrapperClass="absolute !left-10 xl:!left-16 bottom-10 !transform-none !top-[unset] !z-10"
-                    >
-                         <div className="tags">{'</canvas>'}</div>
-                    </Html>
-               </Suspense>
-          </Canvas>
+          <div className="w-full h-[60vh]">
+               <Canvas
+                    frameloop="demand"
+                    shadows
+                    dpr={[1, 2]}
+                    camera={{ position: [15, 2, 20], fov: isMobile ? 25 : 12.5 }}
+                    gl={{ preserveDrawingBuffer: true }}
+               >
+                    <Suspense fallback={<CanvasLoader />}>
+                         <OrbitControls
+                              enableZoom={false}
+                              autoRotate={true}
+                              autoRotateSpeed={0.5}
+                              maxPolarAngle={Math.PI / 2}
+                              minPolarAngle={Math.PI / 2}
+                         />
+                         <Computers isMobile={isMobile} rotationY={rotationY} />
+                         <Preload all />
+                         <Html
+                              as="div"
+                              wrapperClass="absolute !left-10 xl:!left-16 bottom-10 !transform-none !top-[unset] !z-10"
+                         >
+                              <div className="tags">{'</canvas>'}</div>
+                         </Html>
+                    </Suspense>
+               </Canvas>
+          </div>
      );
 };
 

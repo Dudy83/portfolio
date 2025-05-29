@@ -15,16 +15,16 @@ export default function HeroSection({ about }: HeroSectionProps) {
 
      return (
           <header
-               className={`relative -ml-4 sm:-ml-6 mb-20 h-[calc(100vh-116px)] min-w-[calc(100%+2rem)] sm:min-w-[calc(100%+3rem)]`}
+               className={`relative -ml-4 sm:-ml-6 mb-20 min-h-screen min-w-[calc(100%+2rem)] sm:min-w-[calc(100%+3rem)]`}
           >
-               <div className="pointer-events-auto absolute w-full bg-transparent h-full z-50 flex justify-center items-start top-0">
-               </div>
+               {/* <div className="pointer-events-auto absolute w-full bg-transparent h-full z-50 flex justify-center items-start top-0">
+               </div> */}
                {isCanvasInit && (
                     <>
                          <div className="tags ml-8 mt-5">{'<header>'}</div>
 
                          <div
-                              className={`absolute inset-0 top-[15px] sm:top-[60px] max-w-7xl mx-auto xl:px-16 px-10 mt-8 sm:mt-0`}
+                              className={` max-w-7xl mx-auto xl:px-16 px-10 mt-8 sm:mt-0`}
                          >
                               <div className="tags first">{'<h1>'}</div>
                               <div className="flex items-start justify-start flex-col ml-4">
